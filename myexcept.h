@@ -53,7 +53,7 @@ namespace myexcept{
             std::stringstream ss;
             ss <<       "Exception occured. Please check the following callstack:\n";
             for(const call& c : callstack){
-                ss <<   "    ... in " << c.pos << " - " << c.desc << " .-\n";
+                ss <<   "    ... in " << c.pos << "\t\t - " << c.desc << " .-\n";
             }
 
             ss <<       "    ... end of callstack\n";
