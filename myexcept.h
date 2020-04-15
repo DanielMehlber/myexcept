@@ -49,7 +49,11 @@ namespace myexcept{
             callstack.push_front(call{pos, desc});
         };
 
-        std::string get() const noexcept {
+        /**
+         * @brief Converts exception to string
+         * @return std::string 
+         */
+        std::string toString() const noexcept {
             std::stringstream ss;
             ss <<       "Exception occured. Please check the following callstack:\n";
             for(const call& c : callstack){
@@ -60,13 +64,25 @@ namespace myexcept{
             return ss.str();
         };
 
-        /**
+
+           /**
          * @brief Converts exception to string
          * @return const char* 
          */
         inline operator std::string () const noexcept {
-            return get();
+            return toString();
         };
+
+        /**
+         * @brief Streams exception for outpur purposes
+         * @param out output stream
+         * @param e exception class
+         * @return std::ostream& 
+         */
+        friend std::ostream& operator<< (std::ostream& out, myexcept& e){
+            out << e.toString();
+            return out;
+        }
         
         /**
          * @brief calls pack function
