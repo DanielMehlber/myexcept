@@ -2,6 +2,9 @@
 #include <list>
 #include <sstream>
 
+#define TRY try{
+#define HANDLE(pos, desc) }catch(myexcept::myexcept& e){ e(pos, desc); throw; }
+
 /**
  * @brief All myexcept components are located in here
  */
