@@ -13,7 +13,7 @@ namespace myexcept{
     /**
      * @brief Handles exceptions
      */
-    class myexcept
+    class exception
     {
     private:
         /**
@@ -36,11 +36,11 @@ namespace myexcept{
         std::list<call> callstack;
         
     public:
-        myexcept() = delete;
+        exception() = delete;
         /**
          * @brief Construct a new myexcept object
          */
-        myexcept(const char* pos, const char* desc){
+        exception(const char* pos, const char* desc){
             pack(pos, desc);
         };
         /**
@@ -82,7 +82,7 @@ namespace myexcept{
          * @param e exception class
          * @return std::ostream& 
          */
-        friend std::ostream& operator<< (std::ostream& out, myexcept& e){
+        friend std::ostream& operator<< (std::ostream& out, exception& e){
             out << e.toString();
             return out;
         }
